@@ -1,5 +1,5 @@
 {
-  "name": "@bjvalmaseda/sb-component ",
+  "name": "@bjvalmaseda/sb-component",
   "private": false,
   "author": {
     "name": "Barbaro Javier",
@@ -17,7 +17,7 @@
   "homepage": "https://bjvalmaseda.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bjvalmasedadev/sb-component.git"
+    "url": "https://github.com/bjvalmasedadev/sb-component"
   },
   "release": {
     "branches": [
@@ -30,23 +30,24 @@
   ],
   "type": "module",
   "scripts": {
-    "dev": "npm run storybook",
+    "build-storybook": "storybook build",
     "build": "npm run clean && tsc && npm run copyfiles",
+    "clean": "rimraf dist/",
+    "copyfiles": "copyfiles -u 1 src/**/*.css dist/",
+    "dev": "npm run storybook",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "clean": "rimraf dist/",
-    "copyfiles": "copyfiles -u 1 src/**/*.css dist/"
+    "push:npm": "np",
+    "storybook": "storybook dev -p 6006"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.0.2",
     "@storybook/addon-essentials": "^7.5.0",
     "@storybook/addon-interactions": "^7.5.0",
     "@storybook/addon-links": "^7.5.0",
@@ -65,9 +66,13 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.15",
+    "np": "^8.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
     "semantic-release": "^22.0.5",
     "storybook": "^7.5.0",
+    "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "plugins": [
